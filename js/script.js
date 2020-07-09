@@ -2,40 +2,29 @@
 $(document).ready(function(){
     var array = [];
     var numUser = [];
+    var result = [];
 
     for (var i = 0; i < 5; i++) {
         array.push(random(1,100));   
     }
-    console.log(array);
-    
-    var time = 10;
-    
-    var timer = setInterval(function() {  
-        if (time==0) {
-            clearInterval(timer);
-            $('#modal').hide();
-            for (var i = 0; i < 5; i++) {
-                var tuoinumeri = parseInt(prompt('inserisci i tuoi numeri'));
-                numUser.push(tuoinumeri);
-            }
-            console.log(numUser);
-            
-        } else {
-            time--;
-            $('#modal').text(array);
-            console.log(time); 
-            console.log(array); 
-        }
-    },1000);
+    alert(array);
 
-    // if ($('#modal').hasClass('control')==false) {
-    //     i=0;
-    //     while (i<5) {
-    //         var numInseriti = prompt('inserisci 5 numeri da 1 a 100');
-    //         numUser.push(numInseriti);
-    //         i++;
-    //     }
-    // }
+    setTimeout(function(){
+        for (var i = 0; i < 5; i++) {
+            var tuoinumeri = parseInt(prompt('inserisci i tuoi numeri'));
+            if (isInArray(tuoinumeri,array)) {
+                result.push(tuoinumeri);
+            } 
+            numUser.push(tuoinumeri);
+        }
+        if (result==0) {
+            console.log('non hai indovinato nessun numero');
+        } else {
+            console.log('i numeri da te indovinati sono: ' + result);
+        }
+        console.log('i numeri da te inseriti sono: ' + numUser);      
+        console.log('hai totalizzato: ' + result.length + ' punti');
+    },5000);
 });
 
 
@@ -55,12 +44,3 @@ function isInArray(val, array) {
     } 
     return false;
 }
-
-            // var numUser = [];
-            // i=0;
-            // while (i<5) {
-            //     var numInseriti = prompt('inserisci 5 numeri da 1 a 100');
-            //     // numUser.push(numInseriti);
-            //     i++;
-            // }
-            // console.log(numUser); 

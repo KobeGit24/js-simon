@@ -5,14 +5,14 @@
     background-color: #616060;
     font-size: 40px;
     font-weight: bold;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
 }
-/* 
-#modal.active {
 
-} */
+#modal.active {
+    display: flex;
+}
 
 #modal.control {
     border: 1px solid black;
