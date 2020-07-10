@@ -4,9 +4,13 @@ $(document).ready(function(){
     var numUser = [];
     var result = [];
 
-    for (var i = 0; i < 5; i++) {
-        array.push(random(1,100));   
+    while (array.length<5) {
+        var numRan = random(1,100);
+        if (!array.includes(numRan)) {
+          array.push(numRan); 
+        }
     }
+    console.log(array);
     alert(array);
 
     setTimeout(function(){
